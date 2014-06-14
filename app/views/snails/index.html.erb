@@ -1,0 +1,50 @@
+<h1>See the snails!</h1>
+
+<table>
+  <tbody>
+    <% @snails.each do |snail| %>
+      <tr>
+        <td><b><%= link_to snail.name, snail %></b> who is owned by <b><%= snail.owner %></b></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snail', new_snail_path %>
+<br><br>
+
+
+<h2>Start a snail race!</h2>
+<p id="notice"></p>
+<select id="first-snail">
+  <% @snails.each do |snail| %>
+    <option value="<%= snail.id %>"><%= snail.name %></option>
+  <% end %>
+</select>
+
+vs.
+
+<select id="second-snail">
+  <% @snails.each do |snail| %>
+    <option value="<%= snail.id %>"><%= snail.name %></option>
+  <% end %>
+</select>
+
+<button id="match-button">Match!</button>
+
+<script>
+  $("#match-button").click(function () {
+    var first = $("#first-snail").val();
+    var second = $("#second-snail").val();
+
+    if (first == second) {
+      $("#notice").text("You can't let a snail race against itself!")
+    } else {
+      window.location = "/match/" + first + "/" + second;
+    }
+  });
+</script>
+
+

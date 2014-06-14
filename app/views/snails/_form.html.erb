@@ -1,0 +1,32 @@
+<%= form_for(@snail) do |f| %>
+  <% if @snail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@snail.errors.count, "error") %> prohibited this snail from being saved:</h2>
+
+      <ul>
+      <% @snail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :owner %><br>
+    <%= f.text_field :owner %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br>
+<% end %>

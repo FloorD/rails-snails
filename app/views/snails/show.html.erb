@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @snail.name %></h1>
+<br>
+<p><%= @snail.name %> is a new snail around here.</p>
+<p>However you shouldn't underestimate this snail!</p>
+<br>
+<p>Here's how <%= @snail.name %> was described by <br>
+their owner <%= @snail.owner %>:<br><br>
+<b><%= @snail.description %></b>
+<br><br><%= @snail.name %> has a speed of <%= @snail.speed %>, the endurance<br>
+is <%= @snail.endurance %> and their motivation is <%= @snail.motivation %><br><br>
+
+They have won <%= @snail.win %> matches and lost <%= @snail.lose %> matches.</p><br>
+
+<%= link_to 'Back', snails_path %>
