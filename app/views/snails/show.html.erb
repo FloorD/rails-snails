@@ -7,7 +7,7 @@
 <br>
 <p>Here's how <%= @snail.name %> was described by <br>
 their owner <%= @snail.owner %>:<br><br>
-<b><%= @snail.description %></b>
+<div style="width: 400px"><b><%= simple_format(@snail.description) %></b></div>
 <br><br><%= @snail.name %> has a speed of <%= @snail.speed %>, the endurance<br>
 is <%= @snail.endurance %> and their motivation is <%= @snail.motivation %><br><br>
 

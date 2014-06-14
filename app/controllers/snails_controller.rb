@@ -1,5 +1,6 @@
 class SnailsController < ApplicationController
   before_action :set_snail, only: [:show, :edit, :update, :destroy]
+  before_action :best_snail
 
   # GET /snails
   # GET /snails.json
@@ -62,6 +63,10 @@ class SnailsController < ApplicationController
   end
 
   private
+    def best_snail
+      @win_snail = Snail.maximum("win")
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_snail
       @snail = Snail.find(params[:id])
